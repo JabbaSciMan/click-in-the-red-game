@@ -88,7 +88,6 @@ function reset () {
 }
 let range2: neopixel.Strip = null
 let Dir = 0
-let Length_of_strip = 0
 let Range_B: neopixel.Strip = null
 let Range_A: neopixel.Strip = null
 let Players = false
@@ -97,10 +96,13 @@ let X = 0
 let Begin = 0
 let Continue = false
 let Score_B = 0
-let strip: neopixel.Strip = null
 let Score_A = 0
+let strip: neopixel.Strip = null
+let Length_of_strip = 0
 music.playTone(262, music.beat(BeatFraction.Whole))
 reset()
+Length_of_strip = 72
+strip = neopixel.create(DigitalPin.P0, Length_of_strip, NeoPixelMode.RGB)
 basic.forever(function () {
     if (!(input.buttonIsPressed(Button.A)) && R1 > 0 && Continue && !(input.buttonIsPressed(Button.B))) {
         strip.clear()
